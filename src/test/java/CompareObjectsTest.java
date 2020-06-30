@@ -18,15 +18,119 @@ public class CompareObjectsTest extends Utils {
      * Основной метод, вызывает все тестовые методы своего класса.
      */
     public static void testCompareObjects() {
-
+        compareTest();
+        compareToStringTest();
+        compareHashCode();
     }
 
     private static void compareTest() {
-        String methodName = "compareTest()";
+        int countTests = 0;
+        int countFails = 0;
+        String methodName = "compare()";
 
         //Сравнение обьекта с самим собой, ожидаемое значение: true
         result = CompareObjects.compare(objects.get(0), objects.get(0));
-        printResult(className, methodName, result);
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение с другим обьектом того же класса и разными полями, ожидаемое значение: false
+        result = !CompareObjects.compare(objects.get(0), objects.get(1));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+
+        //Сравнение разных обьектов одного класса, с одинаковыми полями, ожидаемое значение: true
+        result = CompareObjects.compare(objects.get(1), objects.get(2));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение обьекта с null, ожидание результата: false
+        result = !CompareObjects.compare(objects.get(0), objects.get(3));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        printResult(className, methodName, countTests, countFails);
+    }
+
+    private static void compareToStringTest() {
+        int countTests = 0;
+        int countFails = 0;
+        String methodName = "compareToString()";
+
+        //Сравнение обьекта с самим собой, ожидаемое значение: true
+        result = CompareObjects.compare(objects.get(0), objects.get(0));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение с другим обьектом того же класса и разными полями, ожидаемое значение: false
+        result = !CompareObjects.compare(objects.get(0), objects.get(1));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+
+        //Сравнение разных обьектов одного класса, с одинаковыми полями, ожидаемое значение: false
+        result = !CompareObjects.compare(objects.get(1), objects.get(2));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение обьекта с null, ожидание результата: false
+        result = !CompareObjects.compare(objects.get(0), objects.get(3));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        printResult(className, methodName, countTests, countFails);
+    }
+
+    private static void compareHashCode() {
+        int countTests = 0;
+        int countFails = 0;
+        String methodName = "compareHashCode()";
+
+        //Сравнение обьекта с самим собой, ожидаемое значение: true
+        result = CompareObjects.compare(objects.get(0), objects.get(0));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение с другим обьектом того же класса и разными полями, ожидаемое значение: false
+        result = !CompareObjects.compare(objects.get(0), objects.get(1));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение разных обьектов одного класса, с одинаковыми полями, ожидаемое значение: false
+        result = !CompareObjects.compare(objects.get(1), objects.get(2));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        //Сравнение обьекта с null, ожидание результата: false
+        result = !CompareObjects.compare(objects.get(0), objects.get(3));
+        countTests++;
+        if (!result) {
+            countFails++;
+        }
+
+        printResult(className, methodName, countTests, countFails);
     }
 
     private static class TestObject {
