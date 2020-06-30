@@ -1,4 +1,4 @@
-public class SortTest extends Test {
+public class SortTest extends Utils {
     public static void testSort() {
 
     }

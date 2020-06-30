@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompareObjectsTest extends Test {
+public class CompareObjectsTest extends Utils {
     private static List<Object> objects;
     private static boolean result;
+    private static String className = "CompareObjectsTest";
 
     static {
         objects = new ArrayList<>();
@@ -21,8 +22,11 @@ public class CompareObjectsTest extends Test {
     }
 
     private static void compareTest() {
+        String methodName = "compareTest()";
+
         //Сравнение обьекта с самим собой, ожидаемое значение: true
         result = CompareObjects.compare(objects.get(0), objects.get(0));
+        printResult(className, methodName, result);
     }
 
     private static class TestObject {

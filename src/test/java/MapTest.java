@@ -1,4 +1,4 @@
-public class MapTest extends Test {
+public class MapTest extends Utils {
     public static void testMap() {
 
     }
