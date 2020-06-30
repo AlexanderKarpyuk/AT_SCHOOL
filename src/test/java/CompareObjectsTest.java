@@ -3,8 +3,7 @@ import java.util.List;
 
 public class CompareObjectsTest extends Utils {
     private static List<Object> objects;
-    private static boolean result;
-    private static String className = "CompareObjectsTest";
+    private final static String className = "CompareObjectsTest";
 
     static {
         objects = new ArrayList<>();
@@ -26,6 +25,7 @@ public class CompareObjectsTest extends Utils {
     private static void compareTest() {
         int countTests = 0;
         int countFails = 0;
+        boolean result;
         String methodName = "compare()";
 
         //Сравнение обьекта с самим собой, ожидаемое значение: true
@@ -63,6 +63,7 @@ public class CompareObjectsTest extends Utils {
     private static void compareToStringTest() {
         int countTests = 0;
         int countFails = 0;
+        boolean result;
         String methodName = "compareToString()";
 
         //Сравнение обьекта с самим собой, ожидаемое значение: true
@@ -100,6 +101,7 @@ public class CompareObjectsTest extends Utils {
     private static void compareHashCode() {
         int countTests = 0;
         int countFails = 0;
+        boolean result;
         String methodName = "compareHashCode()";
 
         //Сравнение обьекта с самим собой, ожидаемое значение: true
