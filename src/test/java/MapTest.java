@@ -9,6 +9,9 @@ public class MapTest extends Utils {
         map.put("key2", "string");
     }
 
+    /**
+     * Основной метод, вызывает все тестовые методы своего класса.
+     */
     public static void testMap() {
         countElementsInMapTest();
         deleteValueFromMapTest();
