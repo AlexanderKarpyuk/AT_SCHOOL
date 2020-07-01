@@ -1,17 +1,10 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
+/**
+ * Тесты для класса Sort.
+ */
 public class SortTest extends Utils {
-    private static List<Integer> list = new ArrayList<>();
-
-    static {
-        for (int i = 0; i < 12; i++) {
-            int random = (int) (Math.random() * 100);
-            list.add(random);
-        }
-
-    }
+    private final static String className = "SortTest";
 
     /**
      * Основной метод, вызывает все тестовые методы своего класса.
@@ -21,10 +14,38 @@ public class SortTest extends Utils {
     }
 
     private static void reverseSortTest() {
-        int[] array = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            array[i] = list.get(i);
+        int[] array1 = new int[] {54, 12, 70, 12, 5, 110, 8, 89, 0, -7};
+        int[] array2 = new int[] {54, 12, 70, 12, 5, 110, 8, 89, 0, -7};
+
+        boolean result;
+        int countTests = 0;
+        int countFails = 0;
+        String methodName = "reverseSortTest";
+        int[] arrayTest = Sort.reverseSort(array1);
+        int[] arrayReverse = reverseSort(array2);
+
+        /*Сравнение массива полученного в результате правильной сортировки и
+        массива полученного с помощью тестируемого метода, ожидаемое значение: true*/
+        result = Arrays.equals(arrayReverse, arrayTest);
+        countTests++;
+        if (!result) {
+            countFails++;
         }
-        Sort.reverseSort(array);
+
+        printResult(className, methodName, countTests, countFails);
+    }
+
+    //Сортировка пузырьком в обратном порядке
+    private static int[] reverseSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = array.length - 1; j > i; j--) {
+                if (array[i] < array[j]) {
+                    int tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
+                }
+            }
+        }
+        return array;
     }
 }

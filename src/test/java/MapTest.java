@@ -1,5 +1,8 @@
 import java.util.HashMap;
 
+/**
+ * Тесты для класса Map.
+ */
 public class MapTest extends Utils {
     private final static String className = "MapTest";
     private static HashMap<String, String> map = new HashMap<>();

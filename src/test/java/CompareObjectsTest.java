@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Тесты для класса CompareObjects.
+ */
 public class CompareObjectsTest extends Utils {
     private static List<Object> objects;
     private final static String className = "CompareObjectsTest";
